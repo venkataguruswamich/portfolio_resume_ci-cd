@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Venkata Guruswami Cheeraboina – DevOps & Cloud Resume</title>
-    <!-- Google Fonts + simple reset for clean professional look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0">
+  <title>Venkata Guruswami Cheeraboina · DevOps & Cloud Resume</title>
+  <!-- Google Fonts: clean, modern sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: #eef2f5;
-            font-family: 'Inter', sans-serif;
-            color: #1e2a3e;
-            line-height: 1.45;
-            padding: 40px 20px;
-        }
+    body {
+      background: linear-gradient(135deg, #e9eff4 0%, #dce6f0 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a2b3c;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        /* resume card container */
-        .resume-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.2s;
-        }
+    /* elegant card with depth */
+    .resume-container {
+      max-width: 1150px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(2px);
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 45px -15px rgba(10, 30, 50, 0.25), 0 8px 18px rgba(0,20,40,0.08);
+      overflow: hidden;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(79, 135, 175, 0.18);
+    }
 
-        /* inner padding */
-        .resume-inner {
-            padding: 2rem 2rem 2rem 2rem;
-        }
+    .resume-inner {
+      padding: 2.5rem 2.5rem 2rem;
+    }
 
-        /* header section: name + contact row */
-        .header {
-            border-bottom: 3px solid #0f3b5f;
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.8rem;
-        }
+    /* header – strong naming & contact */
+    .header {
+      border-bottom: 2px solid #dbe8f2;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
+<<<<<<< HEAD
         .name-title h1 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -54,246 +63,329 @@
             margin-bottom: 0.4rem;
             text-align: center;
         }
+=======
+    .name-title h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #0a3147;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+>>>>>>> 0e1ec76 (updated resume upload)
 
-        .contact-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            row-gap: 0.6rem;
-            margin-top: 0.6rem;
-            font-size: 0.9rem;
-            color: #2c4b6c;
-        }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      row-gap: 0.7rem;
+      font-size: 0.9rem;
+      color: #1f4662;
+      margin-top: 0.4rem;
+    }
 
-        .contact-bar a {
-            color: #1a5d8f;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.2s;
-        }
+    .contact-bar a,
+    .contact-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: #154e6b;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+      padding: 0.25rem 0.5rem;
+      border-radius: 20px;
+      background: #f2f7fc;
+    }
 
-        .contact-bar a:hover {
-            color: #0e3e5f;
-            text-decoration: underline;
-        }
+    .contact-bar a:hover {
+      color: #033b57;
+      background: #d9eaf9;
+      text-decoration: none;
+    }
 
-        .contact-bar i {
-            width: 1.2rem;
-            font-size: 1rem;
-            color: #2c6e9e;
-        }
+    .contact-bar i {
+      font-size: 1rem;
+      width: 1.4rem;
+      color: #1e6b92;
+      text-align: center;
+    }
 
-        /* section headings */
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            border-left: 5px solid #1d7eaa;
-            padding-left: 12px;
-            margin: 1.6rem 0 1rem 0;
-            color: #0e3b54;
-        }
+    /* sections headings */
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 650;
+      letter-spacing: -0.3px;
+      color: #0a3147;
+      margin: 2rem 0 1rem 0;
+      padding-left: 0.75rem;
+      border-left: 6px solid #1f829f;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(to right, #f4f9fd, transparent);
+      border-radius: 0 12px 12px 0;
+    }
 
-        .section-title:first-of-type {
-            margin-top: 0;
-        }
+    .section-title i {
+      color: #1d7399;
+      font-size: 1.2rem;
+      margin-left: 0.2rem;
+    }
 
-        /* professional summary */
-        .summary-text {
-            background: #f8fafc;
-            padding: 1rem 1.3rem;
-            border-radius: 16px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #1f3b4c;
-            border: 1px solid #e2edf2;
-            margin-bottom: 0.2rem;
-        }
+    /* summary with soft background */
+    .summary-text {
+      background: #f6fafd;
+      padding: 1.2rem 1.4rem;
+      border-radius: 20px;
+      font-size: 0.96rem;
+      line-height: 1.6;
+      color: #1e3b4f;
+      border: 1px solid #daecf5;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.02);
+    }
 
-        /* skills grid (tech skills) */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem 1.2rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.2rem;
-        }
+    /* skill tags */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      margin: 0.8rem 0 0.5rem;
+    }
 
-        .skill-badge {
-            background-color: #eef3fa;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #145c7a;
-            border: 1px solid #d4e2ec;
-        }
+    .skill-badge {
+      background: #ecf3fb;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0c4b6e;
+      border: 1px solid #cde1f0;
+      letter-spacing: -0.2px;
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
 
-        /* experience items */
-        .job-entry {
-            margin-bottom: 1.7rem;
-        }
+    .skill-badge:hover {
+      background: #d9e9fc;
+      border-color: #8bb9d5;
+    }
 
-        .job-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.4rem;
-        }
+    /* job blocks */
+    .job-entry {
+      margin-bottom: 1.8rem;
+      background: #ffffff;
+      padding: 0.2rem 0 0.2rem 0;
+    }
 
-        .job-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #0e3b54;
-        }
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px dashed #cbdde9;
+      padding-bottom: 0.4rem;
+    }
 
-        .job-company {
-            font-weight: 600;
-            color: #2c5a7a;
-        }
+    .job-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #0d3d57;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
 
-        .job-date {
-            font-size: 0.8rem;
-            color: #5f7f9a;
-            font-weight: 400;
-        }
+    .job-company {
+      font-weight: 600;
+      color: #1e5a7c;
+    }
 
-        .job-list {
-            margin-top: 0.5rem;
-            padding-left: 1.2rem;
-            list-style-type: none;
-        }
+    .job-date {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #4e6f89;
+      background: #eef3f7;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
 
-        .job-list li {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            line-height: 1.45;
-            position: relative;
-            padding-left: 1.2rem;
-        }
+    .job-list {
+      margin-top: 0.6rem;
+      padding-left: 0.2rem;
+      list-style: none;
+    }
 
-        .job-list li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #1d7eaa;
-            font-size: 0.85rem;
-        }
+    .job-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      position: relative;
+      padding-left: 1.6rem;
+      color: #1e3b4c;
+    }
 
-        /* project / portfolio blocks (end-to-end, iac, etc) */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.2rem;
-            margin: 0.8rem 0 0.5rem;
-        }
+    .job-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0.2rem;
+      color: #1d7eaa;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
 
-        .project-card {
-            background: #ffffff;
-            border: 1px solid #e1ecf2;
-            border-radius: 20px;
-            padding: 1rem 1.2rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            transition: all 0.2s;
-        }
+    /* project cards */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+      margin: 0.8rem 0 1rem;
+    }
 
-        .project-card h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #115277;
-            margin-bottom: 0.6rem;
-            border-left: 3px solid #2c9bcb;
-            padding-left: 10px;
-        }
+    .project-card {
+      background: #ffffff;
+      border: 1px solid #e6f0f7;
+      border-radius: 22px;
+      padding: 1.3rem 1.3rem;
+      box-shadow: 0 6px 14px rgba(0, 32, 54, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .project-card p {
-            font-size: 0.85rem;
-            line-height: 1.45;
-            color: #2c4b64;
-        }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 22px rgba(19, 83, 121, 0.08);
+      border-color: #b6d6ed;
+    }
 
-        /* core competencies (inline pills) */
-        .competencies-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-top: 0.5rem;
-        }
-        .comp-pill {
-            background: #e9f0f5;
-            border-radius: 30px;
-            padding: 0.25rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #0f5575;
-        }
+    .project-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0c4161;
+      margin-bottom: 0.8rem;
+      border-left: 4px solid #2596be;
+      padding-left: 0.8rem;
+      letter-spacing: -0.2px;
+    }
 
-        /* certs & edu row */
-        .cert-edu-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.3rem;
-        }
-        .cert-box, .edu-box {
-            flex: 1;
-            min-width: 200px;
-        }
-        .cert-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .cert-list li {
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-        .cert-list i {
-            color: #227a9c;
-            width: 18px;
-            font-size: 0.8rem;
-        }
-        .lang-item {
-            background: #f5f9fc;
-            border-radius: 14px;
-            padding: 0.3rem 1rem;
-            display: inline-block;
-            margin-right: 0.8rem;
-            font-size: 0.85rem;
-        }
+    .project-card p {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #2a4257;
+    }
 
-        hr {
-            margin: 0.8rem 0;
-            border: 0;
-            height: 1px;
-            background: #e2ecf2;
-        }
-        footer {
-            font-size: 0.7rem;
-            text-align: center;
-            margin-top: 1.5rem;
-            color: #7f9ab0;
-            border-top: 1px solid #e5edf2;
-            padding-top: 1rem;
-        }
-        @media (max-width: 700px) {
-            .resume-inner {
-                padding: 1.3rem;
-            }
-            .job-header {
-                flex-direction: column;
-                gap: 5px;
-            }
-        }
-    </style>
+    .competencies-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .comp-pill {
+      background: #edf4fc;
+      border-radius: 30px;
+      padding: 0.45rem 1.3rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #0b4a6b;
+      border: 1px solid #c9e1f2;
+    }
+
+    /* certs & edu */
+    .cert-edu-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-box, .edu-box {
+      flex: 1 1 260px;
+    }
+
+    .cert-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .cert-list li {
+      margin-bottom: 0.7rem;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5faff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 14px;
+    }
+
+    .cert-list i {
+      color: #1f7698;
+      font-size: 0.9rem;
+      width: 1.2rem;
+    }
+
+    .lang-item {
+      background: #eef5fb;
+      border-radius: 20px;
+      padding: 0.35rem 1.2rem;
+      display: inline-block;
+      margin-right: 0.8rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 1.2rem 0 0.8rem;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #d4e2ef, transparent);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #527a95;
+      padding-top: 0.8rem;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .resume-inner {
+        padding: 1.5rem 1.2rem;
+      }
+      .name-title h1 {
+        font-size: 2rem;
+      }
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .contact-bar {
+        gap: 0.8rem;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="resume-container">
+<<<<<<< HEAD
     <div class="resume-inner">
         <!-- header section with name and contact same as original -->
         <div class="header">
@@ -436,7 +528,150 @@
         <footer>
             <i class="fas fa-cloud-upload-alt"></i> DevOps Engineer | Infrastructure Automation | Cloud-Native Enthusiast
         </footer>
+=======
+  <div class="resume-inner">
+    
+    <!-- Header with name and contacts -->
+    <div class="header">
+      <div class="name-title">
+        <h1>Venkata Guruswami Cheeraboina</h1>
+      </div>
+      <div class="contact-bar">
+        <span><i class="fas fa-envelope"></i> Venkataguruswamich@gmail.com</span>
+        <span><i class="fas fa-phone-alt"></i> +91 9700252181</span>
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub (venkataguruswamich)</a>
+        <a href="#"><i class="fab fa-github"></i> Gurus41</a>
+      </div>
+>>>>>>> 0e1ec76 (updated resume upload)
     </div>
+
+    <!-- Professional Summary -->
+    <div class="summary-text">
+      IT professional with 6+ years of experience, including 2 years in Hardware Engineering and 4+ years as a Senior System Administrator. Strong in server management, troubleshooting, and maintaining high system availability. Hands-on with Docker, Kubernetes, Terraform, CI/CD, and cloud platforms (AWS, Azure, GCP). Focused on automation, scalability, security, and efficient infrastructure operations. Currently transitioning into a full DevOps role with continuous upskilling and real-time project experience.
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section-title"><i class="fas fa-cogs"></i> Technical Skills</div>
+    <div class="skills-grid">
+      <span class="skill-badge">Docker, Jenkins, Git/GitHub, CI/CD</span>
+      <span class="skill-badge">AWS: EC2, S3, IAM, VPC, CloudWatch, Lambda</span>
+      <span class="skill-badge">Linux administration, shell scripting</span>
+      <span class="skill-badge">Networking: TCP/IP, DNS, DHCP, VPN</span>
+      <span class="skill-badge">Routing & Switching (VLAN, static routing)</span>
+      <span class="skill-badge">Kubernetes, Prometheus, Grafana</span>
+      <span class="skill-badge">Azure & GCP fundamentals</span>
+      <span class="skill-badge">Terraform, Ansible</span>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
+
+    <div class="job-entry">
+      <div class="job-header">
+        <div class="job-title"><span>Sr. System Administrator</span> · <span class="job-company">Exafluence Data Driven Influence</span></div>
+        <div class="job-date">2025 – Present | Tirupathi</div>
+      </div>
+      <ul class="job-list">
+        <li>Installed and managed Windows Server 2022, Linux (Ubuntu, CentOS, RedHat, Kali) per project requirements.</li>
+        <li>Administered VMware ESXi hosts and vSphere, including provisioning and performance monitoring.</li>
+        <li>Managed Active Directory, DNS, and Group Policies for domain infrastructure.</li>
+        <li>Configured Meraki Cloud Firewall and pfSense for network security and routing.</li>
+        <li>Deployed AWS services (EC2, S3, VPC, IAM, CloudWatch) and Azure VMs with high availability.</li>
+      </ul>
+    </div>
+
+    <div class="job-entry">
+      <div class="job-header">
+        <div class="job-title"><span>Desktop Support Engineer</span> · <span class="job-company">Instakart Services (Flipkart)</span></div>
+        <div class="job-date">2022 – 2025 | Vijayawada</div>
+      </div>
+      <ul class="job-list">
+        <li>Designed and maintained on-premises infrastructure for business-critical applications.</li>
+        <li>Managed VMware vSphere environments ensuring high availability and performance.</li>
+        <li>Automated tasks using Python and Bash scripting to improve operational efficiency.</li>
+        <li>Implemented backup and disaster recovery solutions for data integrity.</li>
+        <li>Conducted capacity planning and performance monitoring to meet SLAs.</li>
+      </ul>
+    </div>
+
+    <div class="job-entry">
+      <div class="job-header">
+        <div class="job-title"><span>Laptop & Desktop Support Engineer</span> · <span class="job-company">Sri Sai Computer Services (ConServe)</span></div>
+        <div class="job-date">2019 – 2021 | Vijayawada</div>
+      </div>
+      <ul class="job-list">
+        <li>Diagnosed hardware failures including motherboard issues using diagnostic tools.</li>
+        <li>Performed component-level repair with strict ESD safety compliance.</li>
+        <li>Maintained high repair standards and efficient task completion.</li>
+      </ul>
+    </div>
+
+    <!-- DevOps Projects -->
+    <div class="section-title"><i class="fas fa-code-branch"></i> Key DevOps Projects & Implementations</div>
+    <div class="project-grid">
+      <div class="project-card">
+        <h4>End-to-End CI/CD Pipeline on AWS</h4>
+        <p>Built CI/CD pipeline to build, scan, and deploy Dockerized apps to Kubernetes on AWS. Automated deployment updates with rolling updates, IAM roles, and secret management. Reduced manual intervention by 80%.</p>
+      </div>
+      <div class="project-card">
+        <h4>Infrastructure as Code (Terraform)</h4>
+        <p>Automated multi-tier AWS infrastructure with Terraform: VPC, security groups, EC2, and load balancers. Eliminated manual console work through repeatable provisioning and state management.</p>
+      </div>
+      <div class="project-card">
+        <h4>Monitoring & Logging Stack</h4>
+        <p>Implemented Prometheus and Grafana for metrics and dashboards; configured ELK stack for log aggregation. Improved MTTR by 40% with centralized observability.</p>
+      </div>
+      <div class="project-card">
+        <h4>Configuration Management (Ansible)</h4>
+        <p>Automated server configuration and patch management using Ansible playbooks. Reduced manual effort by 70% across heterogeneous environments with compliance reporting.</p>
+      </div>
+      <div class="project-card">
+        <h4>Zero-Downtime Blue-Green Deployment</h4>
+        <p>Implemented blue-green deployments on Kubernetes with ingress controllers and automated rollback. Achieved zero-downtime upgrades and canary release capabilities.</p>
+      </div>
+    </div>
+
+    <!-- Core Competencies -->
+    <div class="section-title"><i class="fas fa-star"></i> Core Competencies</div>
+    <div class="competencies-wrap">
+      <span class="comp-pill">Infrastructure as Code: Terraform, CloudFormation</span>
+      <span class="comp-pill">Containerization: Docker, Kubernetes, Helm</span>
+      <span class="comp-pill">CI/CD: Jenkins, GitHub Actions, automated testing</span>
+      <span class="comp-pill">System Optimization: performance tuning, cost control</span>
+    </div>
+
+    <!-- Certifications & Education -->
+    <div class="section-title"><i class="fas fa-award"></i> Certifications & Education</div>
+    <div class="cert-edu-row">
+      <div class="cert-box">
+        <ul class="cert-list">
+          <li><i class="fas fa-certificate"></i> Microsoft Windows Server 2022</li>
+          <li><i class="fas fa-certificate"></i> Docker for Absolute Beginner (1Z0-1146)</li>
+          <li><i class="fas fa-certificate"></i> OCI 2025 Foundations Associate</li>
+          <li><i class="fas fa-certificate"></i> OCI DevOps Professional (1Z0-1109-25)</li>
+          <li><i class="fas fa-certificate"></i> Oracle Database@AWS Architect (1Z0-1146)</li>
+        </ul>
+      </div>
+      <div class="edu-box">
+        <div style="margin-bottom: 1rem;">
+          <i class="fas fa-graduation-cap" style="color:#1d7eaa; margin-right: 0.4rem;"></i> 
+          <strong>Bachelor of Computer Science</strong><br> 
+          <span style="margin-left: 1.4rem; color: #2c4b64;">Krishna University, Andhra Pradesh</span>
+        </div>
+        <div>
+          <i class="fas fa-language" style="margin-right: 0.4rem; color:#1d7eaa;"></i> <strong>Languages</strong><br>
+          <span class="lang-item">English: Professional</span>
+          <span class="lang-item">Telugu: Native</span>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <footer>
+      <i class="fas fa-cloud-upload-alt"></i> DevOps Engineer · Infrastructure Automation · Cloud-Native Enthusiast
+    </footer>
+  </div>
 </div>
 </body>
 </html>
