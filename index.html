@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0">
   <title>Venkata Guruswami Cheeraboina · DevOps & Cloud Resume</title>
-  <!-- Google Fonts: clean, modern sans-serif -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 for icons -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,40 +15,137 @@
       box-sizing: border-box;
     }
 
+    /* Light / Dark mode variables */
+    :root {
+      --bg: #eef2f5;
+      --card-bg: #ffffff;
+      --text: #1a2b3c;
+      --heading: #0a3147;
+      --border-light: #dbe8f2;
+      --accent: #1d7eaa;
+      --skill-bg: #ecf3fb;
+      --badge-text: #0c4b6e;
+      --job-bg: #ffffff;
+      --shadow: 0 25px 45px -15px rgba(10,30,50,0.2);
+      --link-bg: #f2f7fc;
+      --section-line: #1f829f;
+      --footer-text: #527a95;
+    }
+
+    body.dark {
+      --bg: #0f1a24;
+      --card-bg: #1b2a36;
+      --text: #d0dfec;
+      --heading: #e0edf9;
+      --border-light: #2a3d4e;
+      --accent: #4da8d8;
+      --skill-bg: #233544;
+      --badge-text: #b1d4f0;
+      --job-bg: transparent;
+      --shadow: 0 25px 45px -10px rgba(0,0,0,0.6);
+      --link-bg: #253544;
+      --section-line: #4da8d8;
+      --footer-text: #9bb7ce;
+    }
+
     body {
-      background: linear-gradient(135deg, #e9eff4 0%, #dce6f0 100%);
+      background: radial-gradient(circle at 20% 30%, #d9e6f2, #b8cfE3);
+      background-attachment: fixed;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1a2b3c;
+      color: var(--text);
       line-height: 1.5;
       padding: 2rem 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* elegant card with depth */
+    body.dark {
+      background: radial-gradient(circle at 30% 40%, #1c2c3a, #0b1721);
+      background-attachment: fixed;
+    }
+
+    /* animated background subtle shapes */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-animation span {
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: rgba(79, 158, 202, 0.08);
+      border-radius: 20% 80% 30% 70% / 50% 40% 60% 50%;
+      animation: float 18s infinite ease-in-out;
+    }
+
+    body.dark .bg-animation span {
+      background: rgba(79, 178, 218, 0.1);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+      50% { transform: translateY(-30px) rotate(8deg); opacity: 0.4; }
+      100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+    }
+
     .resume-container {
       max-width: 1150px;
       width: 100%;
       margin: 0 auto;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(2px);
-      background: #ffffff;
+      background: var(--card-bg);
       border-radius: 2.5rem;
-      box-shadow: 0 25px 45px -15px rgba(10, 30, 50, 0.25), 0 8px 18px rgba(0,20,40,0.08);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(79, 135, 175, 0.18);
+      transition: background 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 2;
+      border: 1px solid var(--border-light);
     }
 
     .resume-inner {
       padding: 2.5rem 2.5rem 2rem;
     }
 
-    /* header – strong naming & contact */
+    /* theme toggle button */
+    .theme-toggle {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: var(--link-bg);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .theme-toggle i {
+      font-size: 0.9rem;
+    }
+
     .header {
-      border-bottom: 2px solid #dbe8f2;
+      border-bottom: 2px solid var(--border-light);
       padding-bottom: 1.8rem;
       margin-bottom: 2rem;
       text-align: center;
@@ -58,464 +155,294 @@
       font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: -1px;
-      color: #0a3147;
+      color: var(--heading);
       margin-bottom: 0.75rem;
-      line-height: 1.2;
-      word-break: break-word;
     }
 
     .contact-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      row-gap: 0.7rem;
+      gap: 1.3rem;
       font-size: 0.9rem;
-      color: #1f4662;
-      margin-top: 0.4rem;
+      color: var(--text);
     }
 
-    .contact-bar a,
-    .contact-bar span {
+    .contact-bar a, .contact-bar span {
+      background: var(--link-bg);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      color: #154e6b;
+      gap: 0.4rem;
+      color: var(--text);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s, background 0.2s;
-      padding: 0.25rem 0.5rem;
-      border-radius: 20px;
-      background: #f2f7fc;
-    }
-
-    .contact-bar a:hover {
-      color: #033b57;
-      background: #d9eaf9;
-      text-decoration: none;
     }
 
     .contact-bar i {
-      font-size: 1rem;
-      width: 1.4rem;
-      color: #1e6b92;
-      text-align: center;
+      color: var(--accent);
     }
 
-    /* sections headings */
     .section-title {
       font-size: 1.35rem;
       font-weight: 650;
-      letter-spacing: -0.3px;
-      color: #0a3147;
-      margin: 2rem 0 1rem 0;
-      padding-left: 0.75rem;
-      border-left: 6px solid #1f829f;
+      color: var(--heading);
+      margin: 2rem 0 1rem;
+      padding-left: 0.8rem;
+      border-left: 6px solid var(--section-line);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      background: linear-gradient(to right, #f4f9fd, transparent);
-      border-radius: 0 12px 12px 0;
+      gap: 0.5rem;
     }
 
-    .section-title i {
-      color: #1d7399;
-      font-size: 1.2rem;
-      margin-left: 0.2rem;
-    }
-
-    /* summary with soft background */
     .summary-text {
-      background: #f6fafd;
+      background: var(--skill-bg);
       padding: 1.2rem 1.4rem;
       border-radius: 20px;
       font-size: 0.96rem;
-      line-height: 1.6;
-      color: #1e3b4f;
-      border: 1px solid #daecf5;
-      margin-bottom: 0.5rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.02);
+      border: 1px solid var(--border-light);
     }
 
-    /* skill tags */
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem 1rem;
-      margin: 0.8rem 0 0.5rem;
+      margin: 0.8rem 0;
     }
 
     .skill-badge {
-      background: #ecf3fb;
+      background: var(--skill-bg);
       padding: 0.5rem 1.2rem;
       border-radius: 40px;
       font-size: 0.85rem;
       font-weight: 600;
-      color: #0c4b6e;
-      border: 1px solid #cde1f0;
-      letter-spacing: -0.2px;
-      transition: all 0.2s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      color: var(--badge-text);
+      border: 1px solid var(--border-light);
     }
 
-    .skill-badge:hover {
-      background: #d9e9fc;
-      border-color: #8bb9d5;
-    }
-
-    /* job blocks */
-    .job-entry {
-      margin-bottom: 1.8rem;
-      background: #ffffff;
-      padding: 0.2rem 0 0.2rem 0;
-    }
-
+    .job-entry { margin-bottom: 1.8rem; }
     .job-header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 0.6rem;
-      border-bottom: 1px dashed #cbdde9;
+      border-bottom: 1px dashed var(--border-light);
       padding-bottom: 0.4rem;
     }
+    .job-title { font-weight: 700; color: var(--heading); }
+    .job-company { font-weight: 600; color: var(--accent); }
+    .job-date { background: var(--skill-bg); padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.8rem; }
 
-    .job-title {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #0d3d57;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.4rem;
-    }
+    .job-list { list-style: none; padding-left: 0.2rem; }
+    .job-list li { padding-left: 1.6rem; position: relative; margin-bottom: 0.6rem; }
+    .job-list li::before { content: "▹"; position: absolute; left: 0.2rem; color: var(--accent); }
 
-    .job-company {
-      font-weight: 600;
-      color: #1e5a7c;
-    }
-
-    .job-date {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #4e6f89;
-      background: #eef3f7;
-      padding: 0.25rem 1rem;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    .job-list {
-      margin-top: 0.6rem;
-      padding-left: 0.2rem;
-      list-style: none;
-    }
-
-    .job-list li {
-      margin-bottom: 0.6rem;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      position: relative;
-      padding-left: 1.6rem;
-      color: #1e3b4c;
-    }
-
-    .job-list li::before {
-      content: "▹";
-      position: absolute;
-      left: 0.2rem;
-      color: #1d7eaa;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    /* project cards */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1.4rem;
-      margin: 0.8rem 0 1rem;
+      margin: 1rem 0;
     }
 
     .project-card {
-      background: #ffffff;
-      border: 1px solid #e6f0f7;
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
       border-radius: 22px;
-      padding: 1.3rem 1.3rem;
-      box-shadow: 0 6px 14px rgba(0, 32, 54, 0.04);
-      transition: transform 0.2s ease, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
+      padding: 1.3rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
     }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 22px rgba(19, 83, 121, 0.08);
-      border-color: #b6d6ed;
-    }
-
     .project-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #0c4161;
-      margin-bottom: 0.8rem;
-      border-left: 4px solid #2596be;
+      color: var(--heading);
+      border-left: 4px solid var(--accent);
       padding-left: 0.8rem;
-      letter-spacing: -0.2px;
+      margin-bottom: 0.8rem;
     }
 
-    .project-card p {
-      font-size: 0.85rem;
-      line-height: 1.55;
-      color: #2a4257;
-    }
-
-    .competencies-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 0.6rem 0 0.8rem;
-    }
-
-    .comp-pill {
-      background: #edf4fc;
-      border-radius: 30px;
-      padding: 0.45rem 1.3rem;
-      font-size: 0.83rem;
-      font-weight: 600;
-      color: #0b4a6b;
-      border: 1px solid #c9e1f2;
-    }
-
-    /* certs & edu */
     .cert-edu-row {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .cert-box, .edu-box {
-      flex: 1 1 260px;
+      margin: 1rem 0;
     }
 
     .cert-list {
       list-style: none;
-      padding-left: 0;
     }
-
     .cert-list li {
-      margin-bottom: 0.7rem;
-      font-size: 0.88rem;
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: #f5faff;
-      padding: 0.4rem 0.9rem;
-      border-radius: 14px;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+      flex-wrap: wrap;
     }
-
-    .cert-list i {
-      color: #1f7698;
-      font-size: 0.9rem;
-      width: 1.2rem;
+    .cert-link {
+      color: var(--accent);
+      margin-left: 0.3rem;
+      font-size: 0.8rem;
     }
 
     .lang-item {
-      background: #eef5fb;
+      background: var(--skill-bg);
       border-radius: 20px;
-      padding: 0.35rem 1.2rem;
-      display: inline-block;
+      padding: 0.3rem 1.2rem;
       margin-right: 0.8rem;
-      margin-bottom: 0.4rem;
-      font-size: 0.85rem;
       font-weight: 500;
-    }
-
-    hr {
-      margin: 1.2rem 0 0.8rem;
-      border: 0;
-      height: 1px;
-      background: linear-gradient(to right, #d4e2ef, transparent);
     }
 
     footer {
       text-align: center;
-      font-size: 0.78rem;
-      color: #527a95;
-      padding-top: 0.8rem;
-      font-weight: 500;
-      letter-spacing: -0.2px;
+      color: var(--footer-text);
+      margin-top: 1.2rem;
     }
 
     @media (max-width: 700px) {
-      body {
-        padding: 1rem 0.8rem;
-      }
-      .resume-inner {
-        padding: 1.5rem 1.2rem;
-      }
-      .name-title h1 {
-        font-size: 2rem;
-      }
-      .job-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-      .contact-bar {
-        gap: 0.8rem;
-        justify-content: center;
-      }
+      .resume-inner { padding: 1.5rem; }
+      .theme-toggle { top: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
-<div class="resume-container">
-  <div class="resume-inner">
-    
-    <!-- Header with name and contacts -->
-    <div class="header">
-      <div class="name-title">
-        <h1>Venkata Guruswami Cheeraboina</h1>
-      </div>
-      <div class="contact-bar">
-        <span><i class="fas fa-envelope"></i> Venkataguruswamich@gmail.com</span>
-        <span><i class="fas fa-phone-alt"></i> +91 9700252181</span>
-        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="#"><i class="fab fa-github"></i> GitHub (venkataguruswamich)</a>
-        <a href="#"><i class="fab fa-github"></i> Gurus41</a>
-      </div>
-    </div>
+  <!-- animated background elements -->
+  <div class="bg-animation">
+    <span style="top: 10%; left: 5%; width: 50px; height: 50px;"></span>
+    <span style="top: 70%; left: 80%; width: 60px; height: 60px; animation-delay: 3s;"></span>
+    <span style="top: 40%; left: 50%; width: 35px; height: 35px; animation-delay: 6s;"></span>
+    <span style="top: 80%; left: 15%; width: 45px; height: 45px; animation-delay: 9s;"></span>
+  </div>
 
-    <!-- Professional Summary -->
-    <div class="summary-text">
-      IT professional with 6+ years of experience, including 2 years in Hardware Engineering and 4+ years as a Senior System Administrator. Strong in server management, troubleshooting, and maintaining high system availability. Hands-on with Docker, Kubernetes, Terraform, CI/CD, and cloud platforms (AWS, Azure, GCP). Focused on automation, scalability, security, and efficient infrastructure operations. Currently transitioning into a full DevOps role with continuous upskilling and real-time project experience.
-    </div>
-
-    <!-- Technical Skills -->
-    <div class="section-title"><i class="fas fa-cogs"></i> Technical Skills</div>
-    <div class="skills-grid">
-      <span class="skill-badge">Docker, Jenkins, Git/GitHub, CI/CD</span>
-      <span class="skill-badge">AWS: EC2, S3, IAM, VPC, CloudWatch, Lambda</span>
-      <span class="skill-badge">Linux administration, shell scripting</span>
-      <span class="skill-badge">Networking: TCP/IP, DNS, DHCP, VPN</span>
-      <span class="skill-badge">Routing & Switching (VLAN, static routing)</span>
-      <span class="skill-badge">Kubernetes, Prometheus, Grafana</span>
-      <span class="skill-badge">Azure & GCP fundamentals</span>
-      <span class="skill-badge">Terraform, Ansible</span>
-    </div>
-
-    <!-- Professional Experience -->
-    <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
-
-    <div class="job-entry">
-      <div class="job-header">
-        <div class="job-title"><span>Sr. System Administrator</span> · <span class="job-company">Exafluence Data Driven Influence</span></div>
-        <div class="job-date">2025 – Present | Tirupathi</div>
+  <div class="resume-container">
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i> Dark</button>
+    <div class="resume-inner">
+      
+      <div class="header">
+        <div class="name-title">
+          <h1>Venkata Guruswami Cheeraboina</h1>
+        </div>
+        <div class="contact-bar">
+          <span><i class="fas fa-envelope"></i> Venkataguruswamich@gmail.com</span>
+          <span><i class="fas fa-phone-alt"></i> +91 9700252181</span>
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-github"></i> GitHub (venkataguruswamich)</a>
+          <a href="#"><i class="fab fa-github"></i> Gurus41</a>
+        </div>
       </div>
-      <ul class="job-list">
-        <li>Installed and managed Windows Server 2022, Linux (Ubuntu, CentOS, RedHat, Kali) per project requirements.</li>
-        <li>Administered VMware ESXi hosts and vSphere, including provisioning and performance monitoring.</li>
-        <li>Managed Active Directory, DNS, and Group Policies for domain infrastructure.</li>
-        <li>Configured Meraki Cloud Firewall and pfSense for network security and routing.</li>
-        <li>Deployed AWS services (EC2, S3, VPC, IAM, CloudWatch) and Azure VMs with high availability.</li>
-      </ul>
-    </div>
 
-    <div class="job-entry">
-      <div class="job-header">
-        <div class="job-title"><span>Desktop Support Engineer</span> · <span class="job-company">Instakart Services (Flipkart)</span></div>
-        <div class="job-date">2022 – 2025 | Vijayawada</div>
+      <div class="summary-text">
+        IT professional with 6+ years of experience, including 2 years in Hardware Engineering and 4+ years as a Senior System Administrator. Strong in server management, troubleshooting, and maintaining high system availability. Hands-on with Docker, Kubernetes, Terraform, CI/CD, and cloud platforms (AWS, Azure, GCP). Focused on automation, scalability, security, and efficient infrastructure operations. Currently transitioning into a full DevOps role with continuous upskilling and real-time project experience.
       </div>
-      <ul class="job-list">
-        <li>Designed and maintained on-premises infrastructure for business-critical applications.</li>
-        <li>Managed VMware vSphere environments ensuring high availability and performance.</li>
-        <li>Automated tasks using Python and Bash scripting to improve operational efficiency.</li>
-        <li>Implemented backup and disaster recovery solutions for data integrity.</li>
-        <li>Conducted capacity planning and performance monitoring to meet SLAs.</li>
-      </ul>
-    </div>
 
-    <div class="job-entry">
-      <div class="job-header">
-        <div class="job-title"><span>Laptop & Desktop Support Engineer</span> · <span class="job-company">Sri Sai Computer Services (ConServe)</span></div>
-        <div class="job-date">2019 – 2021 | Vijayawada</div>
+      <div class="section-title"><i class="fas fa-cogs"></i> Technical Skills</div>
+      <div class="skills-grid">
+        <span class="skill-badge">Docker, Jenkins, Git/GitHub, CI/CD</span>
+        <span class="skill-badge">AWS: EC2, S3, IAM, VPC, CloudWatch</span>
+        <span class="skill-badge">Linux administration, shell scripting</span>
+        <span class="skill-badge">Networking: TCP/IP, DNS, DHCP, VPN</span>
+        <span class="skill-badge">Kubernetes, Prometheus, Grafana</span>
+        <span class="skill-badge">Terraform, Ansible</span>
       </div>
-      <ul class="job-list">
-        <li>Diagnosed hardware failures including motherboard issues using diagnostic tools.</li>
-        <li>Performed component-level repair with strict ESD safety compliance.</li>
-        <li>Maintained high repair standards and efficient task completion.</li>
-      </ul>
-    </div>
 
-    <!-- DevOps Projects -->
-    <div class="section-title"><i class="fas fa-code-branch"></i> Key DevOps Projects & Implementations</div>
-    <div class="project-grid">
-      <div class="project-card">
-        <h4>End-to-End CI/CD Pipeline on AWS</h4>
-        <p>Built CI/CD pipeline to build, scan, and deploy Dockerized apps to Kubernetes on AWS. Automated deployment updates with rolling updates, IAM roles, and secret management. Reduced manual intervention by 80%.</p>
-      </div>
-      <div class="project-card">
-        <h4>Infrastructure as Code (Terraform)</h4>
-        <p>Automated multi-tier AWS infrastructure with Terraform: VPC, security groups, EC2, and load balancers. Eliminated manual console work through repeatable provisioning and state management.</p>
-      </div>
-      <div class="project-card">
-        <h4>Monitoring & Logging Stack</h4>
-        <p>Implemented Prometheus and Grafana for metrics and dashboards; configured ELK stack for log aggregation. Improved MTTR by 40% with centralized observability.</p>
-      </div>
-      <div class="project-card">
-        <h4>Configuration Management (Ansible)</h4>
-        <p>Automated server configuration and patch management using Ansible playbooks. Reduced manual effort by 70% across heterogeneous environments with compliance reporting.</p>
-      </div>
-      <div class="project-card">
-        <h4>Zero-Downtime Blue-Green Deployment</h4>
-        <p>Implemented blue-green deployments on Kubernetes with ingress controllers and automated rollback. Achieved zero-downtime upgrades and canary release capabilities.</p>
-      </div>
-    </div>
-
-    <!-- Core Competencies -->
-    <div class="section-title"><i class="fas fa-star"></i> Core Competencies</div>
-    <div class="competencies-wrap">
-      <span class="comp-pill">Infrastructure as Code: Terraform, CloudFormation</span>
-      <span class="comp-pill">Containerization: Docker, Kubernetes, Helm</span>
-      <span class="comp-pill">CI/CD: Jenkins, GitHub Actions, automated testing</span>
-      <span class="comp-pill">System Optimization: performance tuning, cost control</span>
-    </div>
-
-    <!-- Certifications & Education -->
-    <div class="section-title"><i class="fas fa-award"></i> Certifications & Education</div>
-    <div class="cert-edu-row">
-      <div class="cert-box">
-        <ul class="cert-list">
-          <li><i class="fas fa-certificate"></i> Microsoft Windows Server 2022</li>
-          <li><i class="fas fa-certificate"></i> Docker for Absolute Beginner (1Z0-1146)</li>
-          <li><i class="fas fa-certificate"></i> OCI 2025 Foundations Associate</li>
-          <li><i class="fas fa-certificate"></i> OCI DevOps Professional (1Z0-1109-25)</li>
-          <li><i class="fas fa-certificate"></i> Oracle Database@AWS Architect (1Z0-1146)</li>
+      <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title"><span>Sr. System Administrator</span> · <span class="job-company">Exafluence</span></div>
+          <div class="job-date">2025 – Present</div>
+        </div>
+        <ul class="job-list">
+          <li>Managed Windows Server 2022, Linux (Ubuntu, CentOS, RedHat) and VMware vSphere environments.</li>
+          <li>Administered Active Directory, DNS, Group Policies and cloud firewalls (Meraki, pfSense).</li>
+          <li>Deployed AWS services (EC2, S3, VPC, IAM) and Azure VMs with high availability.</li>
         </ul>
       </div>
-      <div class="edu-box">
-        <div style="margin-bottom: 1rem;">
-          <i class="fas fa-graduation-cap" style="color:#1d7eaa; margin-right: 0.4rem;"></i> 
-          <strong>Bachelor of Computer Science</strong><br> 
-          <span style="margin-left: 1.4rem; color: #2c4b64;">Krishna University, Andhra Pradesh</span>
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title"><span>Desktop Support Engineer</span> · <span class="job-company">Instakart (Flipkart)</span></div>
+          <div class="job-date">2022 – 2025</div>
         </div>
-        <div>
-          <i class="fas fa-language" style="margin-right: 0.4rem; color:#1d7eaa;"></i> <strong>Languages</strong><br>
-          <span class="lang-item">English: Professional</span>
-          <span class="lang-item">Telugu: Native</span>
+        <ul class="job-list">
+          <li>Maintained on-premises infrastructure and VMware vSphere for critical applications.</li>
+          <li>Automated tasks with Python/Bash; implemented backup and disaster recovery.</li>
+        </ul>
+      </div>
+      <div class="job-entry">
+        <div class="job-header">
+          <div class="job-title"><span>Laptop & Desktop Support Engineer</span> · <span class="job-company">Sri Sai Computer Services</span></div>
+          <div class="job-date">2019 – 2021</div>
+        </div>
+        <ul class="job-list">
+          <li>Hardware diagnostics and component-level repair with ESD safety compliance.</li>
+        </ul>
+      </div>
+
+      <!-- Key DevOps Projects (Monitoring & Logging removed) -->
+      <div class="section-title"><i class="fas fa-code-branch"></i> Key DevOps Projects</div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>End-to-End CI/CD Pipeline on AWS</h4>
+          <p>Designed CI/CD to build, scan, and deploy Dockerized apps to Kubernetes on AWS. Reduced manual intervention by 80% with automated deployments and IAM security.</p>
+        </div>
+        <div class="project-card">
+          <h4>Infrastructure as Code (Terraform)</h4>
+          <p>Automated multi-tier AWS infrastructure including VPC, EC2, ALB using Terraform. Eliminated manual console operations.</p>
+        </div>
+        <div class="project-card">
+          <h4>Configuration Management (Ansible)</h4>
+          <p>Automated server provisioning and patch management with Ansible, reducing effort by 70%.</p>
+        </div>
+        <div class="project-card">
+          <h4>Zero-Downtime Blue-Green Deployment</h4>
+          <p>Implemented blue-green deployments on Kubernetes with automated rollback and canary releases.</p>
         </div>
       </div>
-    </div>
 
-    <hr>
-    <footer>
-      <i class="fas fa-cloud-upload-alt"></i> DevOps Engineer · Infrastructure Automation · Cloud-Native Enthusiast
-    </footer>
+      <!-- Certifications with links -->
+      <div class="section-title"><i class="fas fa-certificate"></i> Certifications</div>
+      <ul class="cert-list" style="margin-bottom: 1rem;">
+        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> Microsoft Windows Server 2022 
+            <a href="https://drive.google.com/file/d/1aBjkozypUBR9syy2s9NIrqjqrjWxd1Zk/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View</a></li>
+        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> Docker Training Course for Absolute Beginner 
+            <a href="https://drive.google.com/file/d/1fd7yX4fxWGAecPgw908w0hD0Qox4bJ4q/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View</a></li>
+        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> OCI 2025 Foundations Associate 
+            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=E5035B96591B059C417022127F2CB9D93812F9E8E80E2BA299653B251A70654A" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View</a></li>
+        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> OCI DevOps Professional (1Z0-1109-25) 
+            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=5283FD3D6E39BC6D0D9223A1B4C11AFAFA0613741BEF537DFA088016EB0DDD7F" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View</a></li>
+        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> Oracle Database@AWS Architect Professional 
+            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=187BB8C58F78437320D20296C3143AB96C7BD1FB0C64C629F8986CC4B1673CA4" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> View</a></li>
+      </ul>
+
+      <!-- Education separate -->
+      <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+      <p style="margin-left: 1rem; font-weight: 500;"><strong>Bachelor of Computer Science</strong> — Krishna University, Andhra Pradesh (2013–2019)</p>
+
+      <!-- Languages -->
+      <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-left: 0.5rem;">
+        <span class="lang-item"><strong>English:</strong> Professional Proficiency</span>
+        <span class="lang-item"><strong>Telugu:</strong> Native Speaker</span>
+      </div>
+
+      <hr style="border-color: var(--border-light); margin-top: 1.8rem;">
+      <footer>
+        <i class="fas fa-cloud-upload-alt"></i> DevOps Engineer · Infrastructure Automation · Cloud-Native Enthusiast
+      </footer>
+    </div>
   </div>
-</div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = toggle.querySelector('i');
+    
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        icon.className = 'fas fa-sun';
+        toggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+      } else {
+        icon.className = 'fas fa-moon';
+        toggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+      }
+    });
+  </script>
 </body>
 </html>
